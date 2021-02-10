@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-variable "cluster_name" {
-  description = "The unique name to identify the cluster in ASM."
-  type        = string
-}
-
 variable "cluster_endpoint" {
   description = "The GKE cluster endpoint."
   type        = string
