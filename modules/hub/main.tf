@@ -19,9 +19,11 @@ locals {
 
   is_gke_flag               = var.use_kubeconfig ? 0 : 1
   create_cmd_gke_entrypoint = "${path.module}/scripts/gke_hub_registration.sh"
-  create_cmd_gke_body       = "${local.is_gke_flag} ${var.gke_hub_membership_name} ${var.location} ${var.cluster_name} ${local.gke_hub_sa_key} ${var.project_id} ${var.labels}"
+  #create_cmd_gke_body       = "${local.is_gke_flag} ${var.gke_hub_membership_name} ${var.location} ${var.cluster_name} ${local.gke_hub_sa_key} ${var.project_id} ${var.labels}"
+  create_cmd_gke_body       = "${local.is_gke_flag} ${var.gke_hub_membership_name} ${var.cluster_uri} ${var.cluster_name} ${local.gke_hub_sa_key} ${var.project_id} ${var.labels}"
   destroy_gke_entrypoint    = "${path.module}/scripts/gke_hub_unregister.sh"
-  destroy_gke_body          = "${local.is_gke_flag} ${var.gke_hub_membership_name} ${var.location} ${var.cluster_name} ${var.project_id}"
+  #destroy_gke_body          = "${local.is_gke_flag} ${var.gke_hub_membership_name} ${var.location} ${var.cluster_name} ${var.project_id}"
+  destroy_gke_body          = "${local.is_gke_flag} ${var.gke_hub_membership_name} ${var.cluster_uri} ${var.cluster_name} ${var.project_id}"
 }
 
 data "google_client_config" "default" {

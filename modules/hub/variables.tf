@@ -24,13 +24,13 @@ variable "cluster_endpoint" {
   type        = string
 }
 
-variable "project_id" {
-  description = "The project in which the resource belongs."
+variable "cluster_uri" {
+  description = "The URI of an external GKE cluster"
   type        = string
 }
 
-variable "location" {
-  description = "The location (zone or region) this cluster has been created in."
+variable "project_id" {
+  description = "The project in which the resource belongs."
   type        = string
 }
 
